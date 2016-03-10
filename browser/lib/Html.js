@@ -95,7 +95,9 @@ var Html = (_temp = _class = /**
                 _react2.default.createElement(
                     'body',
                     null,
-                    _react2.default.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: this.props.body } })
+                    this.props.preBody,
+                    _react2.default.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: this.props.body } }),
+                    this.props.postBody
                 )
             );
         }
@@ -107,6 +109,8 @@ var Html = (_temp = _class = /**
     description: _react.PropTypes.string,
     css: _react.PropTypes.string,
     body: _react.PropTypes.string.isRequired,
+    preBody: _react.PropTypes.element,
+    postBody: _react.PropTypes.element,
     initialData: _react.PropTypes.object.isRequired,
     moduleDescriptor: _react.PropTypes.object,
     context: _react.PropTypes.object.isRequired

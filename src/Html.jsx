@@ -6,6 +6,8 @@ export default class Html extends Component {
         description: PropTypes.string,
         css: PropTypes.string,
         body: PropTypes.string.isRequired,
+        preBody: PropTypes.element,
+        postBody: PropTypes.element,
         initialData: PropTypes.object.isRequired,
         moduleDescriptor: PropTypes.object,
         context: PropTypes.object.isRequired,
@@ -39,7 +41,9 @@ export default class Html extends Component {
                     ></script>
                 </head>
                 <body>
+                    {this.props.preBody}
                     <div id="app" dangerouslySetInnerHTML={{ __html: this.props.body }} />
+                    {this.props.postBody}
                 </body>
             </html>
         );
