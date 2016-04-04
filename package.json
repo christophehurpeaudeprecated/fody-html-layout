@@ -1,6 +1,6 @@
 {
   "name": "fody-html-layout",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple extensible html layout for React App",
   "main": "lib/Html.js",
   "browser": "browser/lib/Html.js",
