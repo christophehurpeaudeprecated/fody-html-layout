@@ -25,10 +25,11 @@
   },
   "homepage": "https://github.com/turacojs/fody-html-layout#readme",
   "devDependencies": {
+    "eslint": "^2.6.0",
     "eslint-config-partridge": "^4.3.1",
-    "springbokjs-library": "^15.0.0"
+    "springbokjs-library": "^16.1.1"
   },
   "dependencies": {
-    "react": "^0.14.7"
+    "react": "^0.14.0"
   }
 }
