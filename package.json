@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/turacojs/fody-html-layout#readme",
   "devDependencies": {
+    "eslint-config-partridge": "^4.3.1",
     "springbokjs-library": "^15.0.0"
   },
   "dependencies": {
