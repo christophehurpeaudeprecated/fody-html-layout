@@ -72,6 +72,8 @@ var Html = (_temp = _class = /**
                 * @function
                */function render() {
             var moduleIdentifier = this.props.moduleDescriptor && this.props.moduleDescriptor.identifier;
+            var context = this.props.context;
+
 
             return _react2.default.createElement(
                 'html',
@@ -91,8 +93,8 @@ var Html = (_temp = _class = /**
                     _react2.default.createElement('link', { href: 'https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100,500italic,400italic,700italic', rel: 'stylesheet', type: 'text/css' }),
                     _react2.default.createElement('link', { rel: 'stylesheet', href: '/index.css' }),
                     _react2.default.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: this.props.css } }),
-                    _react2.default.createElement('script', { defer: true, src: '/bundle.js' }),
-                    _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? 'window.MODULE_IDENTIFIER = \'' + moduleIdentifier + '\';' : '') + ('window.VERSION = \'' + this.props.context.config.get('version') + '\';') + ('window.initialData = ' + JSON.stringify(this.props.initialData))
+                    _react2.default.createElement('script', { defer: true, src: '/' + (this.props.scriptName || 'bundle') + '.js' }),
+                    _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? 'window.MODULE_IDENTIFIER = \'' + moduleIdentifier + '\';' : '') + ('window.VERSION = \'' + context.config.get('version') + '\';') + ('window.initialData = ' + JSON.stringify(this.props.initialData))
                         }
                     })
                 ),
@@ -113,6 +115,7 @@ var Html = (_temp = _class = /**
     description: _react.PropTypes.string,
     css: _react.PropTypes.string,
     body: _react.PropTypes.string.isRequired,
+    scriptName: _react.PropTypes.string,
     preBody: _react.PropTypes.element,
     postBody: _react.PropTypes.element,
     initialData: _react.PropTypes.object.isRequired,

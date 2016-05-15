@@ -6,6 +6,7 @@ export default class Html extends Component {
         description: PropTypes.string,
         css: PropTypes.string,
         body: PropTypes.string.isRequired,
+        scriptName: PropTypes.string,
         preBody: PropTypes.element,
         postBody: PropTypes.element,
         initialData: PropTypes.object.isRequired,
@@ -20,6 +21,7 @@ export default class Html extends Component {
 
     render() {
         let moduleIdentifier = this.props.moduleDescriptor && this.props.moduleDescriptor.identifier;
+        const { context } = this.props;
 
         return (
             <html>
@@ -32,10 +34,10 @@ export default class Html extends Component {
                     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100,500italic,400italic,700italic" rel="stylesheet" type="text/css" />
                     <link rel="stylesheet" href="/index.css" />
                     <style id="css" dangerouslySetInnerHTML={{ __html: this.props.css }} />
-                    <script defer src="/bundle.js"></script>
+                    <script defer src={`/${this.props.scriptName || 'bundle'}.js`}></script>
                     <script dangerouslySetInnerHTML={{ __html:
                         (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${moduleIdentifier}';` : '')
-                        + `window.VERSION = '${this.props.context.config.get('version')}';`
+                        + `window.VERSION = '${context.config.get('version')}';`
                         + `window.initialData = ${JSON.stringify(this.props.initialData)}`,
                         }}
                     ></script>
