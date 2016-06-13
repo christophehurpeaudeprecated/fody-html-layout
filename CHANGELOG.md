@@ -1,3 +1,7 @@
+### v2.2.0
+
+- [`630a41c`](https://github.com/turacojs/fody-html-layout/commit/630a41c4554d2cdb9506bd16daac51c2400a60e2) initialContextState (Christophe Hurpeau)
+
 ### v2.1.0
 
 - [`5f7c313`](https://github.com/turacojs/fody-html-layout/commit/5f7c3132a28c29587825860c9b7a9edb563f552e) scriptName prop (Christophe Hurpeau)
