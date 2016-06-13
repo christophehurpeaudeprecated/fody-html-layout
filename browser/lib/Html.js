@@ -72,7 +72,9 @@ var Html = (_temp = _class = /**
                 * @function
                */function render() {
             var moduleIdentifier = this.props.moduleDescriptor && this.props.moduleDescriptor.identifier;
-            var context = this.props.context;
+            var _props = this.props;
+            var context = _props.context;
+            var initialContextState = _props.initialContextState;
 
 
             return _react2.default.createElement(
@@ -94,7 +96,7 @@ var Html = (_temp = _class = /**
                     _react2.default.createElement('link', { rel: 'stylesheet', href: '/index.css' }),
                     _react2.default.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: this.props.css } }),
                     _react2.default.createElement('script', { defer: true, src: '/' + (this.props.scriptName || 'bundle') + '.js' }),
-                    _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? 'window.MODULE_IDENTIFIER = \'' + moduleIdentifier + '\';' : '') + ('window.VERSION = \'' + context.config.get('version') + '\';') + ('window.initialData = ' + JSON.stringify(this.props.initialData))
+                    _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? 'window.MODULE_IDENTIFIER = \'' + moduleIdentifier + '\';' : '') + ('window.VERSION = \'' + context.config.get('version') + '\';') + (initialContextState ? 'window.initialContextState = ' + JSON.stringify(initialContextState) + ';' : '') + ('window.initialData = ' + JSON.stringify(this.props.initialData))
                         }
                     })
                 ),
@@ -119,6 +121,7 @@ var Html = (_temp = _class = /**
     preBody: _react.PropTypes.element,
     postBody: _react.PropTypes.element,
     initialData: _react.PropTypes.object.isRequired,
+    initialContextState: _react.PropTypes.object,
     moduleDescriptor: _react.PropTypes.object,
     context: _react.PropTypes.object.isRequired
 }, _class.defaultProps = {

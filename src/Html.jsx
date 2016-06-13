@@ -10,6 +10,7 @@ export default class Html extends Component {
         preBody: PropTypes.element,
         postBody: PropTypes.element,
         initialData: PropTypes.object.isRequired,
+        initialContextState: PropTypes.object,
         moduleDescriptor: PropTypes.object,
         context: PropTypes.object.isRequired,
     };
@@ -21,7 +22,7 @@ export default class Html extends Component {
 
     render() {
         let moduleIdentifier = this.props.moduleDescriptor && this.props.moduleDescriptor.identifier;
-        const { context } = this.props;
+        const { context, initialContextState } = this.props;
 
         return (
             <html>
@@ -38,6 +39,7 @@ export default class Html extends Component {
                     <script dangerouslySetInnerHTML={{ __html:
                         (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${moduleIdentifier}';` : '')
                         + `window.VERSION = '${context.config.get('version')}';`
+                        + (initialContextState ? `window.initialContextState = ${JSON.stringify(initialContextState)};` : '')
                         + `window.initialData = ${JSON.stringify(this.props.initialData)}`,
                         }}
                     ></script>
