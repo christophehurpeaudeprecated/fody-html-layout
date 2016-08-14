@@ -3,21 +3,18 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = undefined;
-
-var _class, _temp;
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-/**
- * @function
- * @param obj
-*/
+var _uneval = require('./uneval');
+
+var _uneval2 = _interopRequireDefault(_uneval);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let Html = (_temp = _class = class Html extends _react.Component {
+class Html extends _react.Component {
 
     render() {
         let moduleIdentifier = this.props.moduleDescriptor && this.props.moduleDescriptor.identifier;
@@ -45,7 +42,7 @@ let Html = (_temp = _class = class Html extends _react.Component {
                 _react2.default.createElement('link', { rel: 'stylesheet', href: '/index.css' }),
                 _react2.default.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: this.props.css } }),
                 _react2.default.createElement('script', { defer: true, src: `/${ this.props.scriptName || 'bundle' }.js` }),
-                _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${ moduleIdentifier }';` : '') + `window.VERSION = '${ context.config.get('version') }';` + (initialContextState ? `window.initialContextState = ${ JSON.stringify(initialContextState) };` : '') + `window.initialData = ${ JSON.stringify(this.props.initialData) }`
+                _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${ moduleIdentifier }';` : '') + `window.VERSION = '${ context.config.get('version') }';` + (initialContextState ? `window.initialContextState = ${ (0, _uneval2.default)(initialContextState) };` : '') + `window.initialData = ${ (0, _uneval2.default)(this.props.initialData) }`
                     }
                 })
             ),
@@ -58,7 +55,9 @@ let Html = (_temp = _class = class Html extends _react.Component {
             )
         );
     }
-}, _class.propTypes = {
+}
+exports.default = Html;
+Html.propTypes = {
     title: _react.PropTypes.string,
     description: _react.PropTypes.string,
     css: _react.PropTypes.string,
@@ -70,9 +69,9 @@ let Html = (_temp = _class = class Html extends _react.Component {
     initialContextState: _react.PropTypes.object,
     moduleDescriptor: _react.PropTypes.object,
     context: _react.PropTypes.object.isRequired
-}, _class.defaultProps = {
+};
+Html.defaultProps = {
     title: '',
     description: ''
-}, _temp);
-exports.default = Html;
-//# sourceMappingURL=Html.js.map
+};
+//# sourceMappingURL=index.js.map

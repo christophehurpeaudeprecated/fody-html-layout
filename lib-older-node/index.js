@@ -3,63 +3,28 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = undefined;
 
-var _createClass = /**
-                    * @function
-                   */ function () { /**
-                                     * @function
-                                     * @param target
-                                     * @param props
-                                    */ function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return (/**
-                                                                                                                                                                                                                                                                                                                                                                            * @function
-                                                                                                                                                                                                                                                                                                                                                                            * @param Constructor
-                                                                                                                                                                                                                                                                                                                                                                            * @param protoProps
-                                                                                                                                                                                                                                                                                                                                                                            * @param staticProps
-                                                                                                                                                                                                                                                                                                                                                                           */ function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; } ); }();
-
-var _class, _temp;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-/**
- * @function
- * @param obj
-*/
+var _uneval = require('./uneval');
+
+var _uneval2 = _interopRequireDefault(_uneval);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * @function
- * @param instance
- * @param Constructor
-*/
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/**
- * @function
- * @param self
- * @param call
-*/
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-/**
- * @function
- * @param subClass
- * @param superClass
-*/
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Html = (_temp = _class = /**
-                              * @function
-                              * @param _Component
-                             */function (_Component) {
+var Html = function (_Component) {
     _inherits(Html, _Component);
 
-    /**
-     * @function
-    */
     function Html() {
         _classCallCheck(this, Html);
 
@@ -68,9 +33,7 @@ var Html = (_temp = _class = /**
 
     _createClass(Html, [{
         key: 'render',
-        value: /**
-                * @function
-               */function render() {
+        value: function render() {
             var moduleIdentifier = this.props.moduleDescriptor && this.props.moduleDescriptor.identifier;
             var _props = this.props;
             var context = _props.context;
@@ -96,7 +59,7 @@ var Html = (_temp = _class = /**
                     _react2.default.createElement('link', { rel: 'stylesheet', href: '/index.css' }),
                     _react2.default.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: this.props.css } }),
                     _react2.default.createElement('script', { defer: true, src: '/' + (this.props.scriptName || 'bundle') + '.js' }),
-                    _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? 'window.MODULE_IDENTIFIER = \'' + moduleIdentifier + '\';' : '') + ('window.VERSION = \'' + context.config.get('version') + '\';') + (initialContextState ? 'window.initialContextState = ' + JSON.stringify(initialContextState) + ';' : '') + ('window.initialData = ' + JSON.stringify(this.props.initialData))
+                    _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: (moduleIdentifier ? 'window.MODULE_IDENTIFIER = \'' + moduleIdentifier + '\';' : '') + ('window.VERSION = \'' + context.config.get('version') + '\';') + (initialContextState ? 'window.initialContextState = ' + (0, _uneval2.default)(initialContextState) + ';' : '') + ('window.initialData = ' + (0, _uneval2.default)(this.props.initialData))
                         }
                     })
                 ),
@@ -112,7 +75,9 @@ var Html = (_temp = _class = /**
     }]);
 
     return Html;
-}(_react.Component), _class.propTypes = {
+}(_react.Component);
+
+Html.propTypes = {
     title: _react.PropTypes.string,
     description: _react.PropTypes.string,
     css: _react.PropTypes.string,
@@ -124,9 +89,10 @@ var Html = (_temp = _class = /**
     initialContextState: _react.PropTypes.object,
     moduleDescriptor: _react.PropTypes.object,
     context: _react.PropTypes.object.isRequired
-}, _class.defaultProps = {
+};
+Html.defaultProps = {
     title: '',
     description: ''
-}, _temp);
+};
 exports.default = Html;
-//# sourceMappingURL=Html.js.map
+//# sourceMappingURL=index.js.map

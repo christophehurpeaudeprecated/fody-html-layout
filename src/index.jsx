@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import uneval from './uneval';
 
 export default class Html extends Component {
     static propTypes = {
@@ -35,14 +36,13 @@ export default class Html extends Component {
                     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100,500italic,400italic,700italic" rel="stylesheet" type="text/css" />
                     <link rel="stylesheet" href="/index.css" />
                     <style id="css" dangerouslySetInnerHTML={{ __html: this.props.css }} />
-                    <script defer src={`/${this.props.scriptName || 'bundle'}.js`}></script>
+                    <script defer src={`/${this.props.scriptName || 'bundle'}.js`} />
                     <script dangerouslySetInnerHTML={{ __html:
                         (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${moduleIdentifier}';` : '')
                         + `window.VERSION = '${context.config.get('version')}';`
-                        + (initialContextState ? `window.initialContextState = ${JSON.stringify(initialContextState)};` : '')
-                        + `window.initialData = ${JSON.stringify(this.props.initialData)}`,
-                        }}
-                    ></script>
+                        + (initialContextState ? `window.initialContextState = ${uneval(initialContextState)};` : '')
+                        + `window.initialData = ${uneval(this.props.initialData)}`,
+                        }} />
                 </head>
                 <body>
                     {this.props.preBody}
