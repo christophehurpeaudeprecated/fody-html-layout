@@ -1,27 +1,25 @@
-# fody-html-layout
+# fody-html-layout [![NPM version][npm-image]][npm-url]
 
 Simple extensible html layout for React App
 
-```js
-import render from 'fody';
-import Html from 'fody-html-layout';
+[![Dependency Status][daviddm-image]][daviddm-url]
 
-// ...
 
-render({ context, Component, data, Html });
+## Install
+
+```sh
+npm install --save fody-html-layout
 ```
 
-
-### Extends Layout
+## Usage
 
 ```js
-import React, { Component } from 'react';
-import Html from 'fody-html-layout';
+import fodyHtmlLayout from 'fody-html-layout';
 
-export default class HtmlLayout extends Component {
-    render() {
-        return <Html preBody={<div />} postBody={<div />} {...this.props} />;
-    }
-}
-
+console.log(fodyHtmlLayout);
 ```
+
+[npm-image]: https://img.shields.io/npm/v/fody-html-layout.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/fody-html-layout
+[daviddm-image]: https://david-dm.org//fody-html-layout.svg?style=flat-square
+[daviddm-url]: https://david-dm.org//fody-html-layout
