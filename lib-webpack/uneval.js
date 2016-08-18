@@ -1,59 +1,60 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
+/* global PRODUCTION */
 export default function uneval(obj) {
-    var objects = arguments.length <= 1 || arguments[1] === undefined ? new Set() : arguments[1];
+  var objects = arguments.length <= 1 || arguments[1] === undefined ? new Set() : arguments[1];
 
-    switch (obj) {
-        case null:
-            return 'null';
-        case undefined:
-            return 'undefined';
-        case Infinity:
-            return 'Infinity';
-        case -Infinity:
-            return '-Infinity';
-    }
+  switch (obj) {
+    case null:
+      return 'null';
+    case undefined:
+      return 'undefined';
+    case Infinity:
+      return 'Infinity';
+    case -Infinity:
+      return '-Infinity';
+  }
 
-    if (Number.isNaN(obj)) {
-        return 'NaN';
-    }
+  if (Number.isNaN(obj)) {
+    return 'NaN';
+  }
 
-    switch (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) {
-        case 'function':
-            throw new Error('Unsupported function.');
-        case 'string':
-        case 'number':
-        case 'boolean':
-            return JSON.stringify(obj);
-    }
+  switch (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) {
+    case 'function':
+      throw new Error(false);
+    case 'string':
+    case 'number':
+    case 'boolean':
+      return JSON.stringify(obj);
+  }
 
-    if (objects.has(obj)) {
-        throw new Error('Circular reference detected.');
-    }
+  if (objects.has(obj)) {
+    throw new Error(false);
+  }
 
-    objects.add(obj);
+  objects.add(obj);
 
-    // specialized types
-    if (obj instanceof Array) {
-        return '[' + obj.map(function (o) {
-            return uneval(o, objects);
-        }).join(',') + ']';
-    }
+  // specialized types
+  if (obj instanceof Array) {
+    return '[' + obj.map(function (o) {
+      return uneval(o, objects);
+    }).join(',') + ']';
+  }
 
-    if (obj instanceof Date) {
-        return 'new Date(' + obj.getTime() + ')';
-    }
+  if (obj instanceof Date) {
+    return 'new Date(' + obj.getTime() + ')';
+  }
 
-    if (obj instanceof Set) {
-        return 'new Set(' + uneval(Array.from(obj)) + ')';
-    }
+  if (obj instanceof Set) {
+    return 'new Set(' + uneval(Array.from(obj)) + ')';
+  }
 
-    if (obj instanceof Map) {
-        return 'new Map(' + uneval(Array.from(obj)) + ')';
-    }
+  if (obj instanceof Map) {
+    return 'new Map(' + uneval(Array.from(obj)) + ')';
+  }
 
-    return '{' + Object.keys(obj).map(function (key) {
-        return JSON.stringify(key) + ':' + uneval(obj[key]);
-    }).join(',') + '}';
+  return '{' + Object.keys(obj).map(function (key) {
+    return JSON.stringify(key) + ':' + uneval(obj[key]);
+  }).join(',') + '}';
 }
 //# sourceMappingURL=uneval.js.map
