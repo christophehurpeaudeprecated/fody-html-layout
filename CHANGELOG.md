@@ -1,3 +1,11 @@
+
+
+### v3.0.0
+
+use `initialBrowserContext` instead of `initialContextState`
+
+- [`0c93d07`](https://github.com/turacojs/fody-html-layout/commit/0c93d07661c5c954f990545c69044cf89c400e76) update dependencies, initialBrowserContext (Christophe Hurpeau)
+
 ### v2.3.0
 
 - [`466e3e1`](https://github.com/turacojs/fody-html-layout/commit/466e3e14dfed51605852db85645791d0f1c6403b) pob and uneval (Christophe Hurpeau)
