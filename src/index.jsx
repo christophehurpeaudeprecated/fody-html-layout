@@ -44,6 +44,7 @@ export default function Html(props) {
         />
       </head>
       <body>
+        <div id="loading-bar" className="loading-bar"><div className="progress" /></div>
         {props.preBody}
         <div id="app" dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBody}

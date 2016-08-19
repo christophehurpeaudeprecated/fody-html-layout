@@ -66,6 +66,13 @@ export default function Html(props) {
       {
         __self: this
       },
+      React.createElement(
+        'div',
+        { id: 'loading-bar', className: 'loading-bar', __self: this
+        },
+        React.createElement('div', { className: 'progress', __self: this
+        })
+      ),
       props.preBody,
       React.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: props.body }, __self: this
       }),

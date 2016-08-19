@@ -80,6 +80,13 @@ function Html(props) {
       {
         __self: this
       },
+      _react2.default.createElement(
+        'div',
+        { id: 'loading-bar', className: 'loading-bar', __self: this
+        },
+        _react2.default.createElement('div', { className: 'progress', __self: this
+        })
+      ),
       props.preBody,
       _react2.default.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: props.body }, __self: this
       }),

@@ -63,6 +63,11 @@ function Html(props) {
     _react2.default.createElement(
       'body',
       null,
+      _react2.default.createElement(
+        'div',
+        { id: 'loading-bar', className: 'loading-bar' },
+        _react2.default.createElement('div', { className: 'progress' })
+      ),
       props.preBody,
       _react2.default.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: props.body } }),
       props.postBody

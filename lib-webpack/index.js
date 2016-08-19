@@ -49,6 +49,11 @@ export default function Html(props) {
     React.createElement(
       'body',
       null,
+      React.createElement(
+        'div',
+        { id: 'loading-bar', className: 'loading-bar' },
+        React.createElement('div', { className: 'progress' })
+      ),
       props.preBody,
       React.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: props.body } }),
       props.postBody
