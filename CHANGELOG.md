@@ -1,3 +1,7 @@
+### v3.1.0
+
+- [`38fd6e0`](https://github.com/turacojs/fody-html-layout/commit/38fd6e088326505bee12491c1f3920dc7ba2488c) loading bar (Christophe Hurpeau)
+
 
 
 ### v3.0.0
