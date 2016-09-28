@@ -1,3 +1,11 @@
+### v4.0.0
+
+BREAKING: now assets starts with version. You should create a symlink or keep all assets in your production code.
+
+- [`fdb98f9`](https://github.com/turacojs/fody-html-layout/commit/fdb98f9f843c29e06c5d7ba4d280f3f60795cacd) add version to assets (Christophe Hurpeau)
+- [`53616af`](https://github.com/turacojs/fody-html-layout/commit/53616af8f5c18f6c1e62a7440c9b9a6b7df033e9) update dependencies and build (Christophe Hurpeau)
+
+
 ### v3.1.0
 
 - [`38fd6e0`](https://github.com/turacojs/fody-html-layout/commit/38fd6e088326505bee12491c1f3920dc7ba2488c) loading bar (Christophe Hurpeau)
