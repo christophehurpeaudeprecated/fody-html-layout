@@ -1,8 +1,8 @@
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /* global PRODUCTION */
 export default function uneval(obj) {
-  var objects = arguments.length <= 1 || arguments[1] === undefined ? new Set() : arguments[1];
+  var objects = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Set();
 
   switch (obj) {
     case null:

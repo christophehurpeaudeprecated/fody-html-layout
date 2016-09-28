@@ -35,9 +35,7 @@ export default function uneval(obj) {
 
   // specialized types
   if (obj instanceof Array) {
-    return `[${ obj.map(o => {
-      return uneval(o, objects);
-    }).join(',') }]`;
+    return `[${ obj.map(o => uneval(o, objects)).join(',') }]`;
   }
 
   if (obj instanceof Date) {
@@ -52,8 +50,6 @@ export default function uneval(obj) {
     return `new Map(${ uneval(Array.from(obj)) })`;
   }
 
-  return `{${ Object.keys(obj).map(key => {
-    return `${ JSON.stringify(key) }:${ uneval(obj[key]) }`;
-  }).join(',') }}`;
+  return `{${ Object.keys(obj).map(key => `${ JSON.stringify(key) }:${ uneval(obj[key]) }`).join(',') }}`;
 }
 //# sourceMappingURL=uneval.js.map
