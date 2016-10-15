@@ -1,3 +1,7 @@
+### v4.1.0
+
+- [`e8cb6fa`](https://github.com/turacojs/fody-html-layout/commit/e8cb6fa5f0e5cf287313bb85d5517bad3421afc9) props.styleName (Christophe Hurpeau)
+
 ### v4.0.0
 
 BREAKING: now assets starts with version. You should create a symlink or keep all assets in your production code.
