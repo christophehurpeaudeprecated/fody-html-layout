@@ -15,13 +15,14 @@ var _uneval2 = _interopRequireDefault(_uneval);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint jsx-a11y/html-has-lang: "off", prefer-template: "off", react/forbid-prop-types: "off" */
+/* eslint-disable jsx-a11y/html-has-lang, prefer-template, react/forbid-prop-types */
 Html.propTypes = {
   title: _react.PropTypes.string,
   description: _react.PropTypes.string,
   css: _react.PropTypes.string,
   body: _react.PropTypes.string.isRequired,
   scriptName: _react.PropTypes.string,
+  styleName: _react.PropTypes.string,
   preBody: _react.PropTypes.element,
   postBody: _react.PropTypes.element,
   initialData: _react.PropTypes.object.isRequired,
@@ -55,11 +56,11 @@ function Html(props) {
       _react2.default.createElement('meta', { name: 'description', content: props.description }),
       _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }),
       _react2.default.createElement('link', { href: 'https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100,500italic,400italic,700italic', rel: 'stylesheet', type: 'text/css' }),
-      _react2.default.createElement('link', { rel: 'stylesheet', href: assetUrl('index.css', version) }),
+      _react2.default.createElement('link', { rel: 'stylesheet', href: assetUrl(`${ props.styleName || 'index' }.css`, version) }),
       _react2.default.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: props.css } }),
       _react2.default.createElement('script', { defer: true, src: assetUrl(`${ props.scriptName || 'bundle' }.js`, version) }),
       _react2.default.createElement('script', {
-        dangerouslySetInnerHTML: { __html: (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${ moduleIdentifier }';` : '') + `window.VERSION = '${ version }';` + (initialBrowserContext ? `window.initialBrowserContext = ${ (0, _uneval2.default)(initialBrowserContext) };` : '') + `window.initialData = ${ (0, _uneval2.default)(props.initialData) }`
+        dangerouslySetInnerHTML: { __html: (moduleIdentifier ? `window.MODULE_IDENTIFIER='${ moduleIdentifier }';` : '') + `window.VERSION='${ version }';` + (!initialBrowserContext ? '' : `window.initialBrowserContext=${ (0, _uneval2.default)(initialBrowserContext) };`) + `window.initialData=${ (0, _uneval2.default)(props.initialData) }`
         }
       })
     ),

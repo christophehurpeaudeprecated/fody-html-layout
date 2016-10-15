@@ -1,5 +1,5 @@
 var _jsxFileName = 'index.jsx';
-/* eslint jsx-a11y/html-has-lang: "off", prefer-template: "off", react/forbid-prop-types: "off" */
+/* eslint-disable jsx-a11y/html-has-lang, prefer-template, react/forbid-prop-types */
 import React, { PropTypes } from 'react';
 import uneval from './uneval';
 
@@ -9,6 +9,7 @@ Html.propTypes = {
   css: PropTypes.string,
   body: PropTypes.string.isRequired,
   scriptName: PropTypes.string,
+  styleName: PropTypes.string,
   preBody: PropTypes.element,
   postBody: PropTypes.element,
   initialData: PropTypes.object.isRequired,
@@ -32,7 +33,7 @@ export default function Html(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 29
       }
     },
     React.createElement(
@@ -41,19 +42,19 @@ export default function Html(props) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 30
         }
       },
       React.createElement('meta', { charSet: 'utf-8', __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 31
         }
       }),
       React.createElement('meta', { httpEquiv: 'X-UA-Compatible', content: 'IE=edge', __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 32
         }
       }),
       React.createElement(
@@ -62,7 +63,7 @@ export default function Html(props) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 33
           }
         },
         props.title
@@ -70,46 +71,46 @@ export default function Html(props) {
       React.createElement('meta', { name: 'description', content: props.description, __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         }
       }),
       React.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1', __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 35
         }
       }),
       React.createElement('link', { href: 'https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100,500italic,400italic,700italic', rel: 'stylesheet', type: 'text/css', __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
-        }
-      }),
-      React.createElement('link', { rel: 'stylesheet', href: assetUrl('index.css', version), __self: this,
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 36
         }
       }),
-      React.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: props.css }, __self: this,
+      React.createElement('link', { rel: 'stylesheet', href: assetUrl(`${ props.styleName || 'index' }.css`, version), __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 37
         }
       }),
-      React.createElement('script', { defer: true, src: assetUrl(`${ props.scriptName || 'bundle' }.js`, version), __self: this,
+      React.createElement('style', { id: 'css', dangerouslySetInnerHTML: { __html: props.css }, __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 38
         }
       }),
+      React.createElement('script', { defer: true, src: assetUrl(`${ props.scriptName || 'bundle' }.js`, version), __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        }
+      }),
       React.createElement('script', {
-        dangerouslySetInnerHTML: { __html: (moduleIdentifier ? `window.MODULE_IDENTIFIER = '${ moduleIdentifier }';` : '') + `window.VERSION = '${ version }';` + (initialBrowserContext ? `window.initialBrowserContext = ${ uneval(initialBrowserContext) };` : '') + `window.initialData = ${ uneval(props.initialData) }`
+        dangerouslySetInnerHTML: { __html: (moduleIdentifier ? `window.MODULE_IDENTIFIER='${ moduleIdentifier }';` : '') + `window.VERSION='${ version }';` + (!initialBrowserContext ? '' : `window.initialBrowserContext=${ uneval(initialBrowserContext) };`) + `window.initialData=${ uneval(props.initialData) }`
         },
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 40
         }
       })
     ),
@@ -119,7 +120,7 @@ export default function Html(props) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 51
         }
       },
       React.createElement(
@@ -127,13 +128,13 @@ export default function Html(props) {
         { id: 'loading-bar', className: 'loading-bar', __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 52
           }
         },
         React.createElement('div', { className: 'progress', __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 52
           }
         })
       ),
@@ -141,7 +142,7 @@ export default function Html(props) {
       React.createElement('div', { id: 'app', dangerouslySetInnerHTML: { __html: props.body }, __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 54
         }
       }),
       props.postBody
